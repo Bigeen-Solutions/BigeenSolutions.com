@@ -1,0 +1,31 @@
+/* Components/Features.css */
+.features-section-wrapper {
+  /* This gradient matches the Hero section for consistency */
+  background: linear-gradient(
+    135deg,
+    rgba(42, 13, 91, 1) 0%,
+    rgba(11, 15, 43, 1) 100%
+  );
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.feature-card {
+  /* This creates the glassmorphism effect */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.feature-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+.feature-card .card-img-top {
+  height: 200px; /* Or adjust as needed */
+  object-fit: contain;
+}

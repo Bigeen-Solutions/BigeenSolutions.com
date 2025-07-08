@@ -1,0 +1,29 @@
+/* Components/Hero.css */
+.hero-section {
+  /* This gradient mimics the design's background. */
+  background: linear-gradient(
+    135deg,
+    rgba(42, 13, 91, 1) 0%,
+    rgba(11, 15, 43, 1) 100%
+  );
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px; /* Add padding to account for the navbar height */
+}
+
+.small-caps-pill {
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 0.3rem 1rem;
+  display: inline-block;
+}
+
+.hero-section .btn {
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+}

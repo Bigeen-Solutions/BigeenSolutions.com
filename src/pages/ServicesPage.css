@@ -1,0 +1,29 @@
+/* pages/servicespage.css  */
+.services-page-wrapper {
+  background: linear-gradient(
+    135deg,
+    rgba(42, 13, 91, 1) 0%,
+    rgba(11, 15, 43, 1) 100%
+  );
+  padding-top: 80px; /* Offset for navbar */
+}
+
+/* Custom styling for React-Bootstrap Tabs */
+.service-tabs .nav-link {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #fff;
+  margin: 0 0.5rem;
+  border-radius: 20px !important;
+}
+
+.service-tabs .nav-link.active {
+  background-color: #fff !important;
+  color: #000 !important;
+  font-weight: bold;
+}
+
+.service-tabs .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}

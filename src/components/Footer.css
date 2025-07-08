@@ -1,0 +1,81 @@
+/* components/footer.css */
+
+.footer-wrapper {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  /* This gradient matches the Hero section for consistency */
+  background: linear-gradient(
+    135deg,
+    rgba(42, 13, 91, 1) 0%,
+    rgba(11, 15, 43, 1) 100%
+  );
+}
+
+/* This creates the giant background logo */
+.footer-wrapper::after {
+  content: "Bigeen";
+  position: absolute;
+  bottom: -15%; /* Position it lower */
+  left: 0;
+  font-size: 20vw; /* Responsive font size */
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.03); /* Very transparent */
+  z-index: 0;
+  user-select: none; /* Make it unselectable */
+}
+
+.footer-wrapper .container {
+  position: relative;
+  z-index: 1;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  line-height: 2;
+}
+
+.footer-link:hover {
+  color: #fff;
+  padding-left: 5px;
+}
+
+/* Newsletter form styling */
+.newsletter-group .form-control {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 20px 0 0 20px !important;
+}
+
+.newsletter-group .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-group .form-control:focus {
+  background-color: transparent;
+  box-shadow: none;
+  border-color: #fff;
+  color: #fff;
+}
+
+.newsletter-group .btn {
+  border-radius: 0 20px 20px 0 !important;
+  background-color: #fff;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Social icons styling */
+.social-icon-footer {
+  color: #fff;
+  margin-right: 1.5rem;
+  font-size: 1.2rem;
+  transition: all 0.2s ease-in-out;
+}
+.social-icon-footer:hover {
+  color: #ccc;
+  transform: translateY(-2px);
+}

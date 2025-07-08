@@ -1,0 +1,54 @@
+/* components/faq.css */
+.faq-section-wrapper {
+  /* This gradient matches the Hero section for consistency */
+  background: linear-gradient(
+    135deg,
+    rgba(42, 13, 91, 1) 0%,
+    rgba(11, 15, 43, 1) 100%
+  );
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  overflow: hidden;
+}
+
+/* Overriding default React-Bootstrap Accordion styles */
+.faq-item {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 1rem !important;
+}
+
+.faq-item .accordion-header .accordion-button {
+  background-color: transparent;
+  color: #000;
+  font-weight: bold;
+  border-radius: 1rem;
+}
+
+.faq-item .accordion-header .accordion-button:focus {
+  box-shadow: none;
+}
+
+.faq-item .accordion-header .accordion-button:not(.collapsed) {
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.faq-item .accordion-body {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* Custom icon for accordion */
+.accordion-button::after {
+  content: ">";
+  font-family: monospace;
+  font-size: 1.5rem;
+  background-image: none;
+  transform: rotate(90deg);
+  transition: transform 0.2s ease-in-out;
+}
+
+.accordion-button:not(.collapsed)::after {
+  transform: rotate(-90deg);
+}
