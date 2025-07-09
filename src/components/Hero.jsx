@@ -22,10 +22,15 @@ function Hero() {
               code
             </p>
             <div>
-              <Button variant="light" size="lg" className="me-3">
+              <Button
+                variant="light"
+                size="lg"
+                className="me-3"
+                href="/contact"
+              >
                 Get in Touch
               </Button>
-              <Button variant="outline-light" size="lg">
+              <Button variant="outline-light" size="lg" href="/contact">
                 Talk to an expert
               </Button>
             </div>
