@@ -11,7 +11,7 @@ import member4 from "../assets/images/team/member4.jpg"
 
 const teamData = [
   {
-    name: "William Anderson",
+    name: "Yusuf Lawal S.",
     title: "Founder & CEO",
     imageUrl: member1,
   },
