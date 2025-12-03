@@ -1,18 +1,32 @@
 //Footer.jsx
-import React from "react"
+import React, { useState } from "react"
 import { Container, Row, Col, Form, Button, InputGroup } from "react-bootstrap"
 import { Link } from "react-router-dom"
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa"
+import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa"
 import "./Footer.css"
 
 function Footer() {
+  const [email, setEmail] = useState("")
+  const [subscribed, setSubscribed] = useState(false)
+
+  const handleSubscribe = (e) => {
+    e.preventDefault()
+    if (email) {
+      setSubscribed(true)
+      setTimeout(() => {
+        setEmail("")
+        setSubscribed(false)
+      }, 3000)
+    }
+  }
+
   return (
-    <div className="footer-wrapper">
+    <footer className="footer-wrapper">
       <Container>
         <Row className="py-5">
-          {/* Column 1: Spark Links */}
-          <Col xs={6} md={3} lg={2} className="mb-4">
-            <h5 className="fw-bold">Bigeen</h5>
+          {/* Column 1: Company Links */}
+          <Col xs={12} sm={6} md={3} lg={2} className="mb-4">
+            <h5 className="fw-bold footer-section-title">Company</h5>
             <ul className="list-unstyled">
               <li>
                 <Link to="/" className="footer-link">
@@ -21,7 +35,7 @@ function Footer() {
               </li>
               <li>
                 <Link to="/projects" className="footer-link">
-                  Projects
+                  Portfolio
                 </Link>
               </li>
               <li>
@@ -38,93 +52,147 @@ function Footer() {
           </Col>
 
           {/* Column 2: Support Links */}
-          <Col xs={6} md={3} lg={2} className="mb-4">
-            <h5 className="fw-bold">Support</h5>
+          <Col xs={12} sm={6} md={3} lg={2} className="mb-4">
+            <h5 className="fw-bold footer-section-title">Support</h5>
             <ul className="list-unstyled">
               <li>
                 <Link to="/contact" className="footer-link">
-                  Contact us
+                  Contact Us
                 </Link>
               </li>
               <li>
-                <a href="/contact" className="footer-link">
-                  Online Chat
+                <a
+                  href="mailto:hello@bigeensolutions.com"
+                  className="footer-link"
+                >
+                  Email
                 </a>
               </li>
               <li>
-                <a href="/contact" className="footer-link">
-                  Whatsapp
+                <a
+                  href="https://wa.me/your-number"
+                  className="footer-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  WhatsApp
                 </a>
               </li>
               <li>
-                <a href="/contact" className="footer-link">
+                <a
+                  href="https://t.me/your-channel"
+                  className="footer-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Telegram
                 </a>
               </li>
             </ul>
           </Col>
 
-          {/* Column 3: FAQ Links */}
-          <Col xs={6} md={3} lg={2} className="mb-4">
-            <h5 className="fw-bold">FAQ</h5>
+          {/* Column 3: Resources */}
+          <Col xs={12} sm={6} md={3} lg={2} className="mb-4">
+            <h5 className="fw-bold footer-section-title">Resources</h5>
             <ul className="list-unstyled">
               <li>
                 <a href="#" className="footer-link">
-                  Account
+                  Privacy Policy
                 </a>
               </li>
               <li>
                 <a href="#" className="footer-link">
-                  Manage Deliveries
+                  Terms of Service
                 </a>
               </li>
               <li>
                 <a href="#" className="footer-link">
-                  Orders
+                  Cookies
                 </a>
               </li>
               <li>
                 <a href="#" className="footer-link">
-                  Payments
+                  Sitemap
                 </a>
               </li>
             </ul>
           </Col>
 
-          {/* Spacer Column */}
-          <Col md={1} lg={2} className="d-none d-lg-block"></Col>
-
           {/* Column 4: Newsletter */}
-          <Col xs={12} md={5} lg={4} className="mb-4">
-            <h5 className="fw-bold">Newsletter</h5>
-            <p>Be the first one to know about discounts, offers and events.</p>
-            <Form>
-              <InputGroup className="mb-3 newsletter-group">
+          <Col xs={12} md={12} lg={5} className="mb-4">
+            <h5 className="fw-bold footer-section-title">Stay Updated</h5>
+            <p className="footer-newsletter-text">
+              Subscribe to our newsletter for updates, tips, and industry
+              insights.
+            </p>
+            <Form onSubmit={handleSubscribe}>
+              <InputGroup className="newsletter-group mb-3">
                 <Form.Control
                   placeholder="Enter your email"
                   aria-label="Enter your email"
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="newsletter-input"
                 />
-                <Button variant="light" type="submit">
-                  Submit
+                <Button
+                  variant="light"
+                  type="submit"
+                  className="newsletter-button"
+                >
+                  Subscribe
                 </Button>
               </InputGroup>
             </Form>
+            {subscribed && (
+              <p className="footer-success-message">
+                Thank you for subscribing!
+              </p>
+            )}
             <div className="social-icons-footer mt-3">
-              <a href="#" className="social-icon-footer">
-                <FaFacebookF />
+              <a
+                href="#"
+                className="social-icon-footer"
+                aria-label="Facebook"
+                title="Facebook"
+              >
+                <FaFacebook />
               </a>
-              <a href="#" className="social-icon-footer">
+              <a
+                href="#"
+                className="social-icon-footer"
+                aria-label="Twitter"
+                title="Twitter"
+              >
                 <FaTwitter />
               </a>
-              <a href="#" className="social-icon-footer">
-                <FaLinkedinIn />
+              <a
+                href="#"
+                className="social-icon-footer"
+                aria-label="LinkedIn"
+                title="LinkedIn"
+              >
+                <FaLinkedin />
               </a>
             </div>
           </Col>
         </Row>
+
+        {/* Footer Bottom */}
+        <Row className="footer-bottom border-top pt-4">
+          <Col md={6} className="mb-3 mb-md-0">
+            <p className="footer-copyright">
+              &copy; {new Date().getFullYear()} Bigeen Solutions. All rights
+              reserved.
+            </p>
+          </Col>
+          <Col md={6} className="text-md-end">
+            <p className="footer-location">Made with ❤️ in Abuja, Nigeria</p>
+          </Col>
+        </Row>
       </Container>
-    </div>
+    </footer>
   )
 }
 

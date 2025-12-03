@@ -1,0 +1,110 @@
+/* pages/AboutPage.css */
+
+.about-hero {
+  background: linear-gradient(
+    135deg,
+    rgba(42, 13, 91, 1) 0%,
+    rgba(11, 15, 43, 1) 100%
+  );
+  color: #fff;
+  padding: 120px 20px 80px;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.about-hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+  .about-hero-title {
+    font-size: 2rem;
+  }
+}
+
+.about-hero-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-section {
+  padding: 5rem 20px;
+  background-color: #f8f9fa;
+}
+
+.about-section-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: #2a0d5b;
+}
+
+.about-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.about-image-placeholder {
+  background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+  border-radius: 12px;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #666;
+  font-weight: 600;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-values-section {
+  padding: 5rem 20px;
+  background-color: #fff;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #2a0d5b;
+}
+
+.value-card {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid #e9ecef;
+}
+
+.value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(42, 13, 91, 0.1);
+  border-color: #2a0d5b;
+}
+
+.value-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.value-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #2a0d5b;
+}
+
+.value-description {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 0;
+}

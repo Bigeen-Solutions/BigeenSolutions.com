@@ -1,17 +1,52 @@
 .clients-section {
+  background-color: #f8f9fa;
   border-top: 1px solid #e9ecef;
   border-bottom: 1px solid #e9ecef;
+  padding: 4rem 0;
+}
+
+.clients-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.clients-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2a0d5b;
+  margin-bottom: 0;
+}
+
+.client-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
 }
 
 .client-logo {
-  max-height: 40px; /* Adjust size as needed */
+  max-height: 50px;
+  max-width: 140px;
+  width: auto;
+  height: auto;
   filter: grayscale(100%);
   opacity: 0.6;
   transition: all 0.3s ease-in-out;
+  object-fit: contain;
 }
 
 .client-logo:hover {
   filter: grayscale(0%);
   opacity: 1;
-  transform: scale(1.1);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .clients-section {
+    padding: 2.5rem 0;
+  }
+
+  .client-logo {
+    max-height: 40px;
+  }
 }

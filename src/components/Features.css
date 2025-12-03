@@ -1,6 +1,6 @@
 /* Components/Features.css */
+
 .features-section-wrapper {
-  /* This gradient matches the Hero section for consistency */
   background: linear-gradient(
     135deg,
     rgba(42, 13, 91, 1) 0%,
@@ -8,24 +8,64 @@
   );
   padding-top: 5rem;
   padding-bottom: 5rem;
+  color: #fff;
+}
+
+.features-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 768px) {
+  .features-title {
+    font-size: 2rem;
+  }
+}
+
+.features-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
 }
 
 .feature-card {
-  /* This creates the glassmorphism effect */
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
+  border-radius: 12px;
   color: #fff;
   transition: all 0.3s ease-in-out;
+  padding: 2rem;
+  text-align: center;
 }
 
 .feature-card:hover {
   background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-.feature-card .card-img-top {
-  height: 200px; /* Or adjust as needed */
-  object-fit: contain;
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.feature-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.feature-description {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
 }

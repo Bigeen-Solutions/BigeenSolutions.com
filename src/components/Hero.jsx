@@ -7,31 +7,34 @@ import "./Hero.css" // Import the custom CSS
 function Hero() {
   return (
     <div className="hero-section">
-      <Container className="text-white text-center">
+      <Container className="hero-content">
         <Row className="justify-content-center">
           <Col md={10} lg={8}>
-            <p className="text-uppercase small-caps-pill">
-              We just Started the first batch of our Local Marketplace E
-              commerce platform
-            </p>
-            <h1 className="display-3 fw-bold my-4">
-              Accelerate high-quality software development
+            <div className="hero-badge">
+              🚀 Launching Our New E-Commerce Marketplace Platform
+            </div>
+            <h1 className="hero-title">
+              Build High-Quality Software That Drives Growth
             </h1>
-            <p className="lead mb-5">
-              Our Team of experience Developers bring Your dream to life with
-              code
+            <p className="hero-subtitle">
+              Our experienced team of developers transforms your vision into
+              reality. From concept to deployment, we deliver strategic,
+              scalable solutions tailored to your business needs.
             </p>
-            <div>
+            <div className="hero-buttons">
               <Button
-                variant="light"
-                size="lg"
-                className="me-3"
+                className="btn-hero btn-hero-primary"
                 href="/contact"
+                aria-label="Start your project with us"
               >
-                Get in Touch
+                Start Your Project
               </Button>
-              <Button variant="outline-light" size="lg" href="/contact">
-                Talk to an expert
+              <Button
+                className="btn-hero btn-hero-secondary"
+                href="/contact"
+                aria-label="Schedule a consultation"
+              >
+                Schedule a Consultation
               </Button>
             </div>
           </Col>

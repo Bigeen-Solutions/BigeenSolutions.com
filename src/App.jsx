@@ -1,30 +1,37 @@
-import React from "react"
+import React, { Suspense } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import CustomNavbar from "./components/Navbar.jsx"
-import Footer from "./components/Footer.jsx" // 1. Import the new footer
+import Footer from "./components/Footer.jsx"
 import HomePage from "./pages/HomePage.jsx"
 import ProjectsPage from "./pages/ProjectsPage.jsx"
 import AboutPage from "./pages/AboutPage.jsx"
 import ServicesPage from "./pages/ServicesPage.jsx"
 import ContactPage from "./pages/ContactPage.jsx"
+import "./assets/styles/globals.css"
 
 function App() {
   return (
     <Router>
-      <div
-        style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
-      >
+      <div className="app-wrapper">
         <CustomNavbar />
-        <main style={{ flex: "1 0 auto" }}>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-          </Routes>
+        <main className="app-main">
+          <Suspense
+            fallback={<div className="loading-fallback">Loading...</div>}
+          >
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route
+                path="*"
+                element={<div className="not-found">Page not found</div>}
+              />
+            </Routes>
+          </Suspense>
         </main>
-        <Footer /> {/* 2. Add the footer here */}
+        <Footer />
       </div>
     </Router>
   )

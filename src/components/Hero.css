@@ -1,6 +1,6 @@
 /* Components/Hero.css */
+
 .hero-section {
-  /* This gradient mimics the design's background. */
   background: linear-gradient(
     135deg,
     rgba(42, 13, 91, 1) 0%,
@@ -10,20 +10,139 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 80px; /* Add padding to account for the navbar height */
+  padding: 120px 20px 80px;
+  position: relative;
+  overflow: hidden;
 }
 
-.small-caps-pill {
-  font-size: 0.8rem;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 0.3rem 1rem;
+/* Decorative background elements */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-badge {
   display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  animation: slideUp 0.6s ease-out;
 }
 
-.hero-section .btn {
-  padding: 0.8rem 2rem;
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  animation: slideUp 0.8s ease-out 0.1s backwards;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.25rem;
+  }
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: slideUp 1s ease-out 0.2s backwards;
+}
+
+@media (max-width: 768px) {
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: slideUp 1.2s ease-out 0.3s backwards;
+}
+
+@media (max-width: 768px) {
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.btn-hero {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.btn-hero-primary {
+  background-color: #fff;
+  color: #2a0d5b;
+}
+
+.btn-hero-primary:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn-hero-secondary {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.btn-hero-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .btn-hero {
+    width: 100%;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -9,37 +9,51 @@ import faqImage from "../assets/images/faq-img.jpg"
 const faqData = [
   {
     eventKey: "0",
-    question: "What languages does Bigeen code with?",
+    question: "What technologies does Bigeen use?",
     answer:
-      "Bigeen supports a wide range of languages including Node.js, Python, Java, Ruby, PHP, Go, Rust, .NET, and more, allowing you to work in your preferred environment.",
+      "We specialize in a wide range of technologies including React, Vue, Angular, Node.js, Python, PHP, Go, Rust, .NET, and more. Our team stays current with industry trends to recommend the best technology stack for your specific project requirements.",
   },
   {
     eventKey: "1",
-    question: "Does Bigeen write perfect code?",
+    question: "How do you ensure code quality?",
     answer:
-      "While Bigeen is a powerful AI assistant that generates high-quality code, it's designed to be a co-pilot. All code should be reviewed and tested by a human developer to ensure it meets your specific requirements and quality standards.",
+      "We follow industry best practices including code reviews, automated testing, continuous integration, and performance monitoring. All code undergoes rigorous testing before deployment to production to ensure reliability and maintainability.",
   },
   {
     eventKey: "2",
-    question: "How does a customer get the most out of Bigeen?",
+    question: "How long does a typical project take?",
     answer:
-      "The best way to get the most out of Spark is to integrate it deeply into your workflow. Use it for everything from boilerplate code and function suggestions to debugging and learning new patterns. The more you use it, the more it adapts to your style.",
+      "Project timelines vary based on scope and complexity. A simple website might take 4-8 weeks, while complex applications can take 3-6 months or longer. We provide detailed project estimates and keep you updated throughout the development process.",
   },
   {
     eventKey: "3",
-    question: "Will my code be shared with other users?",
+    question: "Is my data secure?",
     answer:
-      "No. Your code is your own. We have strict privacy policies in place, and your proprietary code is never shared with other users or used to train our models in a way that would expose your data.",
+      "Security is paramount. We implement industry-standard security practices including data encryption, secure authentication, regular security audits, and compliance with GDPR and other regulations. Your data is never shared with third parties without consent.",
+  },
+  {
+    eventKey: "4",
+    question: "Do you provide ongoing support?",
+    answer:
+      "Yes. We offer comprehensive post-launch support including bug fixes, updates, performance optimization, and feature enhancements. We can discuss support packages tailored to your needs.",
+  },
+  {
+    eventKey: "5",
+    question: "Can you scale an existing system?",
+    answer:
+      "Absolutely. We specialize in modernizing, optimizing, and scaling existing applications. Whether you need performance improvements or architectural changes to support growth, we have the expertise to help.",
   },
 ]
 
 function Faq() {
   return (
     <div className="faq-section-wrapper">
-      <Container className="py-5 text-white">
+      <Container className="py-5">
         <Row className="align-items-center">
           <Col md={7}>
-            <h1 className="fw-bold mb-5">FAQs</h1>
+            <h2 className="faq-title fw-bold mb-5">
+              Frequently Asked Questions
+            </h2>
             <Accordion defaultActiveKey="0" flush>
               {faqData.map((item) => (
                 <Accordion.Item
@@ -47,14 +61,18 @@ function Faq() {
                   key={item.eventKey}
                   className="faq-item mb-3"
                 >
-                  <Accordion.Header>{item.question}</Accordion.Header>
-                  <Accordion.Body>{item.answer}</Accordion.Body>
+                  <Accordion.Header className="faq-question">
+                    {item.question}
+                  </Accordion.Header>
+                  <Accordion.Body className="faq-answer">
+                    {item.answer}
+                  </Accordion.Body>
                 </Accordion.Item>
               ))}
             </Accordion>
           </Col>
-          <Col md={5} className="d-none d-md-block">
-            <Image src={faqImage} fluid />
+          <Col md={5} className="d-none d-md-block ps-4">
+            <Image src={faqImage} fluid className="faq-image" />
           </Col>
         </Row>
       </Container>

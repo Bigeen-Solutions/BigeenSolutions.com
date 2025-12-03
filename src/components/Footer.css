@@ -4,25 +4,26 @@
   position: relative;
   overflow: hidden;
   color: #fff;
-  /* This gradient matches the Hero section for consistency */
   background: linear-gradient(
     135deg,
     rgba(42, 13, 91, 1) 0%,
     rgba(11, 15, 43, 1) 100%
   );
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
 }
 
-/* This creates the giant background logo */
-.footer-wrapper::after {
-  content: "Bigeen";
+/* This creates the giant background logo effect */
+.footer-wrapper::before {
+  content: '';
   position: absolute;
-  bottom: -15%; /* Position it lower */
+  bottom: -10%;
   left: 0;
-  font-size: 20vw; /* Responsive font size */
-  font-weight: bold;
-  color: rgba(255, 255, 255, 0.03); /* Very transparent */
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+  pointer-events: none;
   z-index: 0;
-  user-select: none; /* Make it unselectable */
 }
 
 .footer-wrapper .container {
@@ -30,11 +31,19 @@
   z-index: 1;
 }
 
+.footer-section-title {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
 .footer-link {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   transition: all 0.2s ease-in-out;
   line-height: 2;
+  display: block;
 }
 
 .footer-link:hover {
@@ -42,40 +51,118 @@
   padding-left: 5px;
 }
 
+.footer-newsletter-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
 /* Newsletter form styling */
-.newsletter-group .form-control {
-  background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
+.newsletter-group {
+  width: 100%;
+}
+
+.newsletter-input {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
   border-radius: 20px 0 0 20px !important;
+  padding: 0.75rem 1rem !important;
 }
 
-.newsletter-group .form-control::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+.newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
 }
 
-.newsletter-group .form-control:focus {
-  background-color: transparent;
-  box-shadow: none;
-  border-color: #fff;
-  color: #fff;
+.newsletter-input:focus {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: none !important;
+  border-color: #fff !important;
+  color: #fff !important;
 }
 
-.newsletter-group .btn {
+.newsletter-button {
   border-radius: 0 20px 20px 0 !important;
-  background-color: #fff;
-  color: #000;
-  font-weight: bold;
+  background-color: #fff !important;
+  color: #2a0d5b !important;
+  font-weight: 600 !important;
+  border: none !important;
+  transition: all 0.3s ease-in-out !important;
+}
+
+.newsletter-button:hover {
+  background-color: #f0f0f0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+.footer-success-message {
+  color: #28a745;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
 }
 
 /* Social icons styling */
-.social-icon-footer {
-  color: #fff;
-  margin-right: 1.5rem;
-  font-size: 1.2rem;
-  transition: all 0.2s ease-in-out;
+.social-icons-footer {
+  display: flex;
+  gap: 1rem;
 }
+
+.social-icon-footer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1.1rem;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 .social-icon-footer:hover {
-  color: #ccc;
-  transform: translateY(-2px);
+  background-color: #fff;
+  color: #2a0d5b;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer bottom */
+.footer-bottom {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-copyright,
+.footer-location {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.footer-copyright {
+  text-align: left;
+}
+
+.footer-location {
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .footer-wrapper {
+    padding-top: 3rem;
+  }
+
+  .footer-copyright,
+  .footer-location {
+    text-align: center;
+  }
+
+  .footer-section-title {
+    margin-top: 1rem;
+  }
 }

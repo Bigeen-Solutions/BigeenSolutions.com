@@ -14,45 +14,56 @@ const teamData = [
     name: "Yusuf Lawal S.",
     title: "Founder & CEO",
     imageUrl: member1,
+    bio: "Visionary leader with 10+ years in software development",
   },
   {
     name: "Ava Smith",
     title: "Technical Lead",
     imageUrl: member2,
+    bio: "Expert in full-stack architecture and system design",
   },
   {
     name: "Brenda Reyes",
     title: "Head of Mobile",
     imageUrl: member3,
+    bio: "Specialized in cross-platform mobile development",
   },
   {
     name: "Arjun Sharma",
     title: "Head of Solutions",
     imageUrl: member4,
+    bio: "Strategic consultant and client success advocate",
   },
 ]
 
 function Team() {
   return (
     <div className="team-section-wrapper">
-      <Container className="py-5 text-white">
+      <Container className="py-5">
         <div className="text-center mb-5">
-          <h1 className="fw-bold">Our Talented Team</h1>
-          <p className="lead text-white-50">
-            A completely distributed team dedicated to constructing the finest
-            communication platform designed for developers.
+          <h2 className="team-title fw-bold">Meet Our Expert Team</h2>
+          <p className="team-subtitle">
+            A dedicated group of professionals committed to delivering
+            excellence in every project. From concept to deployment, we're here
+            to make your vision a reality.
           </p>
         </div>
         <Row>
           {teamData.map((member, index) => (
             <Col md={6} lg={3} key={index} className="text-center mb-4">
-              <Image
-                src={member.imageUrl}
-                rounded
-                className="team-member-image"
-              />
-              <h4 className="mt-3 mb-0 fw-bold">{member.name}</h4>
-              <p className="text-white-50">{member.title}</p>
+              <div className="team-member-card">
+                <Image
+                  src={member.imageUrl}
+                  alt={member.name}
+                  className="team-member-image"
+                  loading="lazy"
+                />
+                <h4 className="mt-3 mb-1 fw-bold team-member-name">
+                  {member.name}
+                </h4>
+                <p className="team-member-title">{member.title}</p>
+                <p className="team-member-bio">{member.bio}</p>
+              </div>
             </Col>
           ))}
         </Row>
