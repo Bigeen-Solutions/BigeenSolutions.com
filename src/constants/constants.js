@@ -1,8 +1,9 @@
 // App-wide constants and configuration
 export const SITE_CONFIG = {
     name: 'Bigeen Solutions',
+    slogan: 'The Future of Integrated Business Tools',
     description:
-        'Expert web development and application solutions. We build strategic, high-quality software that drives growth.',
+        'Transform how you work with intelligent tools designed for tomorrow\'s challenges. Automation, analytics, and scalability in one seamless platform.',
     baseUrl: 'https://www.bigeensolutions.com',
     email: 'hello@bigeensolutions.com',
     formspreeId: 'movwonva', // Update this with your Formspree endpoint
@@ -10,7 +11,7 @@ export const SITE_CONFIG = {
 
 export const NAVIGATION = [
     { label: 'Home', href: '/' },
-    { label: 'Projects', href: '/projects' },
+    { label: 'Projects & Roadmap', href: '/projects' },
     { label: 'About Us', href: '/about' },
     { label: 'Services', href: '/services' },
 ]
@@ -19,18 +20,17 @@ export const SOCIAL_LINKS = {
     twitter: '#',
     linkedin: '#',
     facebook: '#',
-    behance: '#',
     github: '#',
 }
 
 export const CTA_BUTTONS = {
     primary: {
-        text: 'Start Your Project',
+        text: 'Get Early Access',
         href: '/contact',
     },
     secondary: {
-        text: 'Schedule Consultation',
-        href: '/contact',
+        text: 'View Roadmap',
+        href: '/projects',
     },
     tertiary: {
         text: 'Contact Us',

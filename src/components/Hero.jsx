@@ -2,40 +2,60 @@
 
 import React from "react"
 import { Container, Row, Col, Button } from "react-bootstrap"
-import "./Hero.css" // Import the custom CSS
+import heroImage from "../assets/images/hero-image.png"
+import "./Hero.css"
 
 function Hero() {
   return (
     <div className="hero-section">
       <Container className="hero-content">
-        <Row className="justify-content-center">
-          <Col md={10} lg={8}>
+        <Row className="align-items-center">
+          <Col lg={6} className="hero-text-col">
             <div className="hero-badge">
-              🚀 Launching Our New E-Commerce Marketplace Platform
+              ✦ V2.0 NOW AVAILABLE
             </div>
             <h1 className="hero-title">
-              Build High-Quality Software That Drives Growth
+              Scale Your{" "}
+              <span className="hero-title-gradient">Micro-SaaS</span>{" "}
+              Stack.
             </h1>
             <p className="hero-subtitle">
-              Our experienced team of developers transforms your vision into
-              reality. From concept to deployment, we deliver strategic,
-              scalable solutions tailored to your business needs.
+              Integrated tools for the modern founder. Automate workflows,
+              analyze growth, and scale infrastructure without the enterprise bloat.
             </p>
             <div className="hero-buttons">
               <Button
                 className="btn-hero btn-hero-primary"
                 href="/contact"
-                aria-label="Start your project with us"
+                aria-label="Get early access to our platform"
               >
-                Start Your Project
+                Get Early Access →
               </Button>
               <Button
                 className="btn-hero btn-hero-secondary"
-                href="/contact"
-                aria-label="Schedule a consultation"
+                href="#demo"
+                aria-label="View demo"
               >
-                Schedule a Consultation
+                <span className="play-icon">▶</span> View Demo
               </Button>
+            </div>
+            <div className="hero-trust">
+              <div className="trust-avatars">
+                <div className="avatar" style={{ background: 'linear-gradient(135deg, #8B5CF6, #3B82F6)' }}></div>
+                <div className="avatar" style={{ background: 'linear-gradient(135deg, #14B8A6, #06B6D4)' }}></div>
+                <div className="avatar" style={{ background: 'linear-gradient(135deg, #F59E0B, #EF4444)' }}></div>
+              </div>
+              <span className="trust-text">Trusted by 2,000+ founders</span>
+            </div>
+          </Col>
+          <Col lg={6} className="hero-image-col">
+            <div className="hero-visual">
+              <img
+                src={heroImage}
+                alt="Bigeen Platform Dashboard"
+                className="hero-image"
+                loading="eager"
+              />
             </div>
           </Col>
         </Row>

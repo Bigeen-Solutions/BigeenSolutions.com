@@ -11,38 +11,43 @@ function CustomNavbar() {
         <Navbar.Brand as={Link} to="/" className="brand-logo">
           <img
             src={brandLogo}
-            height="40"
+            height="32"
             className="d-inline-block align-top"
-            alt="Bigeen Solutions Logo"
+            alt="Bigeen Logo"
             loading="lazy"
           />
-          <span className="brand-text">Bigeen Solutions</span>
+          <span className="brand-text">Solutions</span>
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
           aria-label="Toggle navigation menu"
         />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto align-items-lg-center">
+          <Nav className="mx-auto align-items-lg-center">
             <Nav.Link as={Link} to="/" className="nav-link-custom">
-              Home
+              Features
+            </Nav.Link>
+            <Nav.Link as={Link} to="/services" className="nav-link-custom">
+              Solutions
             </Nav.Link>
             <Nav.Link as={Link} to="/projects" className="nav-link-custom">
               Projects
             </Nav.Link>
-            <Nav.Link as={Link} to="/about" className="nav-link-custom">
+          </Nav>
+          <Nav className="align-items-lg-center">
+            <Nav.Link
+              as={Link}
+              to="/about"
+              className="nav-link-custom nav-link-login"
+            >
               About Us
             </Nav.Link>
-            <Nav.Link as={Link} to="/services" className="nav-link-custom">
-              Services
-            </Nav.Link>
             <Button
-              variant="light"
               as={Link}
               to="/contact"
               className="ms-lg-3 mt-2 mt-lg-0 nav-cta-button"
             >
-              Start Project
+              Get Access
             </Button>
           </Nav>
         </Navbar.Collapse>

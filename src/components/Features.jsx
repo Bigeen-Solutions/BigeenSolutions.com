@@ -1,34 +1,62 @@
 //component/Features.jsx
-import React from 'react'
-import { Container, Row, Col, Card } from 'react-bootstrap'
-import './Features.css'
-
-// Import your feature images
-import feature1Image from '../assets/images/features/feature1.jpg'
-import feature2Image from '../assets/images/features/feature2.jpg'
-import feature3Image from '../assets/images/features/feature3.jpg'
+import React from "react"
+import { Container } from "react-bootstrap"
+import "./Features.css"
 
 const featuresData = [
   {
-    title: 'Multi-Language Expertise',
+    id: 1,
+    title: "Intelligent Automation",
     description:
-      'We build solutions using Node.js, Python, React, PHP, Go, Rust, .NET, and more. Choose your technology stack, and we deliver excellence.',
-    imageUrl: feature1Image,
-    icon: '💻',
+      "Streamline workflows with AI-powered automation that learns from your patterns and optimizes operations in real-time.",
+    icon: "⚡",
+    gradient: "purple",
+    size: "large",
   },
   {
-    title: 'Smart Development Solutions',
+    id: 2,
+    title: "Real-Time Analytics",
     description:
-      'Our modern development practices include code optimization, architectural best practices, and performance-first design principles.',
-    imageUrl: feature2Image,
-    icon: '⚡',
+      "Make data-driven decisions with advanced analytics and customizable dashboards.",
+    icon: "📊",
+    gradient: "teal",
+    size: "medium",
   },
   {
-    title: 'Seamless Project Delivery',
+    id: 3,
+    title: "Scalable Infrastructure",
     description:
-      'Efficient collaboration tools, transparent communication, and organized workflows ensure your project stays on track and meets expectations.',
-    imageUrl: feature3Image,
-    icon: '🎯',
+      "Built to grow with your business, from startup to enterprise scale.",
+    icon: "🚀",
+    gradient: "blue",
+    size: "medium",
+  },
+  {
+    id: 4,
+    title: "Seamless Integration",
+    description:
+      "Connect all your tools in one unified platform. Works with 500+ apps and services.",
+    icon: "🔗",
+    gradient: "purple",
+    size: "medium",
+  },
+  {
+    id: 5,
+    title: "Enterprise Security",
+    description:
+      "Bank-level encryption, SOC 2 compliance, and advanced access controls.",
+    icon: "🔒",
+    gradient: "teal",
+    size: "small",
+  },
+  {
+    id: 6,
+    title: "24/7 Support",
+    description:
+      "Expert support when you need it, with 99.9% uptime guarantee.",
+    icon: "💬",
+    gradient: "blue",
+    size: "small",
   },
 ]
 
@@ -37,31 +65,60 @@ function Features() {
     <div className="features-section-wrapper">
       <Container className="py-5">
         <div className="text-center mb-5">
-          <h2 className="features-title">
-            Why Choose Bigeen Solutions
-          </h2>
+          <h2 className="features-title">Everything You Need to Succeed</h2>
           <p className="features-subtitle">
-            We combine technical excellence with strategic thinking to deliver
-            software that creates real business value.
+            Powerful tools designed for the modern business, integrated into one
+            seamless platform
           </p>
         </div>
-        <Row xs={1} md={2} lg={3} className="g-4">
-          {featuresData.map((feature, index) => (
-            <Col key={index}>
-              <Card className="h-100 feature-card">
-                <Card.Body>
-                  <div className="feature-icon">{feature.icon}</div>
-                  <Card.Title as="h3" className="feature-title fw-bold">
-                    {feature.title}
-                  </Card.Title>
-                  <Card.Text className="feature-description">
-                    {feature.description}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
+
+        {/* Bento Grid Layout */}
+        <div className="bento-grid">
+          {featuresData.map((feature) => (
+            <div
+              key={feature.id}
+              className={`bento-item bento-${feature.size} bento-gradient-${feature.gradient}`}
+            >
+              <div className="bento-content">
+                <div className="bento-icon">{feature.icon}</div>
+                <h3 className="bento-title">{feature.title}</h3>
+                <p className="bento-description">{feature.description}</p>
+              </div>
+              <div className="bento-glow"></div>
+            </div>
           ))}
-        </Row>
+        </div>
+
+        {/* Value Proposition Grid */}
+        <div className="value-prop-section">
+          <h3 className="value-prop-title">The Integrated Advantage</h3>
+          <div className="value-prop-grid">
+            <div className="value-card">
+              <div className="value-icon">⚡</div>
+              <h4>Automation First</h4>
+              <p>
+                Eliminate repetitive tasks and focus on what matters. Our AI
+                learns your workflows and suggests optimizations.
+              </p>
+            </div>
+            <div className="value-card">
+              <div className="value-icon">📈</div>
+              <h4>Data-Driven Insights</h4>
+              <p>
+                Transform raw data into actionable insights with real-time
+                analytics and predictive intelligence.
+              </p>
+            </div>
+            <div className="value-card">
+              <div className="value-icon">🎯</div>
+              <h4>Infinite Scalability</h4>
+              <p>
+                Start small, grow big. Our infrastructure scales automatically
+                to match your business needs.
+              </p>
+            </div>
+          </div>
+        </div>
       </Container>
     </div>
   )

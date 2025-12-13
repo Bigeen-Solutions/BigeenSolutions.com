@@ -1,43 +1,62 @@
 import React from "react"
-import { Container, Row, Col } from "react-bootstrap"
+import { Container } from "react-bootstrap"
 import "./Clients.css"
 
-// Import your client logos
-import logo1 from "../assets/images/clients/logo1.png"
-import logo2 from "../assets/images/clients/logo2.png"
-import logo3 from "../assets/images/clients/logo3.png"
-import logo4 from "../assets/images/clients/logo4.png"
-import logo5 from "../assets/images/clients/logo5.png"
-
+// Mock client names - replace with actual logos when available
 const clientLogos = [
-  { src: logo1, name: "Client 1" },
-  { src: logo2, name: "Client 2" },
-  { src: logo3, name: "Client 3" },
-  { src: logo4, name: "Client 4" },
-  { src: logo5, name: "Client 5" },
+  { name: "TechCorp", industry: "Technology" },
+  { name: "FinanceHub", industry: "Finance" },
+  { name: "DataFlow", industry: "Analytics" },
+  { name: "CloudSync", industry: "Cloud Services" },
+  { name: "AutomateX", industry: "Automation" },
+  { name: "ScaleSmart", industry: "Enterprise" },
+  { name: "InnovateLab", industry: "R&D" },
+  { name: "GlobalOps", industry: "Operations" },
 ]
 
 function Clients() {
+  // Duplicate the array for seamless infinite scroll
+  const duplicatedLogos = [...clientLogos, ...clientLogos]
+
   return (
     <div className="clients-section">
       <Container>
         <div className="clients-header">
-          <h3 className="clients-title">
-            Trusted by Forward-Thinking Companies
-          </h3>
+          <p className="clients-label">Trusted By</p>
         </div>
-        <Row className="align-items-center justify-content-center">
-          {clientLogos.map((logo, index) => (
-            <Col key={index} xs={6} sm={6} md={4} lg={2} className="client-col">
-              <img
-                src={logo.src}
-                alt={`${logo.name} logo`}
-                className="client-logo"
-                loading="lazy"
-              />
-            </Col>
+      </Container>
+
+      {/* Infinite Scroll Ticker */}
+      <div className="clients-ticker-wrapper">
+        <div className="clients-ticker">
+          {duplicatedLogos.map((client, index) => (
+            <div key={index} className="client-item">
+              <div className="client-logo-text">{client.name}</div>
+              <span className="client-industry">{client.industry}</span>
+            </div>
           ))}
-        </Row>
+        </div>
+      </div>
+
+      <Container>
+        <div className="clients-stats">
+          <div className="stat-item">
+            <div className="stat-number">2,500+</div>
+            <div className="stat-label">Active Users</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-number">98%</div>
+            <div className="stat-label">Satisfaction Rate</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-number">50+</div>
+            <div className="stat-label">Enterprise Clients</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-number">24/7</div>
+            <div className="stat-label">Support</div>
+          </div>
+        </div>
       </Container>
     </div>
   )
