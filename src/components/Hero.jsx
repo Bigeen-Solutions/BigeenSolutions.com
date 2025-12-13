@@ -2,7 +2,7 @@
 
 import React from "react"
 import { Container, Row, Col, Button } from "react-bootstrap"
-import heroImage from "../assets/images/hero-image.png"
+import heroImage from "../assets/images/hero-image.jpg"
 import "./Hero.css"
 
 function Hero() {
@@ -11,17 +11,15 @@ function Hero() {
       <Container className="hero-content">
         <Row className="align-items-center">
           <Col lg={6} className="hero-text-col">
-            <div className="hero-badge">
-              ✦ V2.0 NOW AVAILABLE
-            </div>
+            <div className="hero-badge">✦ V2.0 NOW AVAILABLE</div>
             <h1 className="hero-title">
-              Scale Your{" "}
-              <span className="hero-title-gradient">Micro-SaaS</span>{" "}
+              Scale Your <span className="hero-title-gradient">Micro-SaaS</span>{" "}
               Stack.
             </h1>
             <p className="hero-subtitle">
               Integrated tools for the modern founder. Automate workflows,
-              analyze growth, and scale infrastructure without the enterprise bloat.
+              analyze growth, and scale infrastructure without the enterprise
+              bloat.
             </p>
             <div className="hero-buttons">
               <Button
@@ -41,9 +39,24 @@ function Hero() {
             </div>
             <div className="hero-trust">
               <div className="trust-avatars">
-                <div className="avatar" style={{ background: 'linear-gradient(135deg, #8B5CF6, #3B82F6)' }}></div>
-                <div className="avatar" style={{ background: 'linear-gradient(135deg, #14B8A6, #06B6D4)' }}></div>
-                <div className="avatar" style={{ background: 'linear-gradient(135deg, #F59E0B, #EF4444)' }}></div>
+                <div
+                  className="avatar"
+                  style={{
+                    background: "linear-gradient(135deg, #8B5CF6, #3B82F6)",
+                  }}
+                ></div>
+                <div
+                  className="avatar"
+                  style={{
+                    background: "linear-gradient(135deg, #14B8A6, #06B6D4)",
+                  }}
+                ></div>
+                <div
+                  className="avatar"
+                  style={{
+                    background: "linear-gradient(135deg, #F59E0B, #EF4444)",
+                  }}
+                ></div>
               </div>
               <span className="trust-text">Trusted by 2,000+ founders</span>
             </div>
