@@ -92,7 +92,10 @@ function ContactPage() {
                   <div className="contact-icon">📧</div>
                   <div>
                     <p className="contact-item-label">Email us</p>
-                    <a href="mailto:hello@bigeen.com" className="contact-link">
+                    <a
+                      href="mailto:bigeen08@gmail.com"
+                      className="contact-link"
+                    >
                       hello@bigeen.com
                     </a>
                   </div>
@@ -102,8 +105,8 @@ function ContactPage() {
                   <div className="contact-icon">📞</div>
                   <div>
                     <p className="contact-item-label">Call us</p>
-                    <a href="tel:+15550123456" className="contact-link">
-                      +1 (555) 012-3456
+                    <a href="tel:+2349052495949" className="contact-link">
+                      +234 (90) 51495949
                     </a>
                   </div>
                 </div>
@@ -112,9 +115,7 @@ function ContactPage() {
                   <div className="contact-icon">📍</div>
                   <div>
                     <p className="contact-item-label">Visit us</p>
-                    <p className="contact-address">
-                      123 Innovation Dr, Tech City
-                    </p>
+                    <p className="contact-address">Abuja, Nigeria</p>
                   </div>
                 </div>
               </div>
