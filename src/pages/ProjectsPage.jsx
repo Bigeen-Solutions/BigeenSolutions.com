@@ -2,92 +2,89 @@ import React, { useState } from "react"
 import { Container, Row, Col, Card, Button, Badge } from "react-bootstrap"
 import "./ProjectsPage.css"
 
-// Project data organized by status
-const projectsData = {
-  legacy: [
-    {
-      id: 1,
-      title: "Enterprise CRM System",
-      description:
-        "Successfully deployed a comprehensive customer relationship management system handling 50K+ users with real-time analytics.",
-      status: "Completed",
-      date: "Q2 2024",
-      tech: ["React", "Node.js", "PostgreSQL"],
-      impact: "300% increase in customer engagement",
-    },
-    {
-      id: 2,
-      title: "Financial Analytics Dashboard",
-      description:
-        "Built a sophisticated dashboard for real-time financial data visualization and predictive analytics for Fortune 500 client.",
-      status: "Completed",
-      date: "Q1 2024",
-      tech: ["Python", "React", "MongoDB"],
-      impact: "Reduced reporting time by 80%",
-    },
+// Current Focus Project
+const currentFocusData = {
+  title: "Bigeen Core",
+  status: "LIVE v2.5",
+  description:
+    "The All-in-One Integrator seamlessly connecting your business tools. Currently serving 500+ businesses with automated workflows and real-time analytics.",
+  actions: [
+    { label: "Try for free", variant: "dark" },
+    { label: "View Changelog", variant: "outline-secondary" },
   ],
-  current: [
-    {
-      id: 3,
-      title: "Integrated Business Suite",
-      description:
-        "Our flagship micro-SaaS platform combining automation, analytics, and workflow management into one seamless experience.",
-      status: "Live",
-      date: "Now",
-      tech: ["React", "Node.js", "PostgreSQL", "Redis"],
-      features: [
-        "Real-time collaboration",
-        "AI-powered insights",
-        "Custom workflows",
-      ],
-      users: "2,500+ active users",
-    },
-    {
-      id: 4,
-      title: "API Gateway & Integration Hub",
-      description:
-        "Unified API layer connecting multiple business tools and services with intelligent routing and monitoring.",
-      status: "Beta",
-      date: "Q4 2024",
-      tech: ["Go", "GraphQL", "Docker"],
-      features: ["99.9% uptime", "Rate limiting", "OAuth 2.0"],
-    },
-  ],
-  upcoming: [
-    {
-      id: 5,
-      title: "AI-Powered Automation Engine",
-      description:
-        "Next-generation automation platform using machine learning to optimize business processes and predict outcomes.",
-      status: "In Development",
-      date: "Q1 2026",
-      tech: ["Python", "TensorFlow", "FastAPI"],
-      votes: 245,
-      progress: 40,
-    },
-    {
-      id: 6,
-      title: "Mobile-First Companion App",
-      description:
-        "Native mobile experience bringing our full suite of tools to iOS and Android with offline capabilities.",
-      status: "Planned",
-      date: "Q2 2026",
-      tech: ["React Native", "TypeScript"],
-      votes: 189,
-      progress: 15,
-    },
-    {
-      id: 7,
-      title: "Advanced Security & Compliance Module",
-      description:
-        "Enterprise-grade security features including SOC 2 compliance, advanced encryption, and audit trails.",
-      status: "Planned",
-      date: "Q3 2026",
-      tech: ["Rust", "Kubernetes"],
-      votes: 156,
-      progress: 10,
-    },
-  ],
+}
+
+// Roadmap Projects
+const roadmapProjects = [
+  {
+    id: 1,
+    title: "AI Analytics Integration",
+    badge: "InDesign",
+    badgeColor: "purple",
+    description:
+      "Predictive modeling for flight trends directly within the Bigeen dashboard.",
+    votes: 422,
+    quarter: "Q3 2025",
+  },
+  {
+    id: 2,
+    title: "Mobile Companion App",
+    badge: "Coming Q2",
+    badgeColor: "warning",
+    description:
+      "Native iOS and Android apps for managing dashboards on mobile integrations.",
+    votes: 340,
+    quarter: "Q2 2026",
+  },
+  {
+    id: 3,
+    title: "Public API Gateway",
+    badge: "Planned",
+    badgeColor: "info",
+    description:
+      "Opening our endpoints for developers to build custom integrations.",
+    votes: 189,
+    quarter: "Q3 2026",
+  },
+  {
+    id: 4,
+    title: "Dark Mode v2",
+    badge: null,
+    description: null,
+    votes: null,
+    isDarkMode: true,
+  },
+]
+
+// Legacy Projects
+const legacyProjects = [
+  {
+    id: 1,
+    title: "Project Alpha CRM",
+    year: "2021",
+    category: "Logistics",
+    description:
+      "A legacy CRM solution for a mid-sized firm that increased efficiency by 40%.",
+    cta: "Read case study",
+    image: "/src/assets/images/alphaproject.png",
+  },
+  {
+    id: 2,
+    title: "Omni-POS System",
+    year: "2022",
+    category: "Retail",
+    description:
+      "Integrated point-of-sale system connecting physical inventory with e-commerce platforms.",
+    cta: "Read case study",
+    image: "/src/assets/images/omni-pos.jpg",
+  },
+]
+
+// Stats data
+const statsData = {
+  totalProjects: 12,
+  inDevelopment: 4,
+  completed: 8,
 }
 
 function ProjectsPage() {
@@ -96,188 +93,240 @@ function ProjectsPage() {
   const handleVote = (projectId) => {
     if (!votedProjects.has(projectId)) {
       setVotedProjects(new Set([...votedProjects, projectId]))
-      // In a real app, this would send a vote to the backend
     }
-  }
-
-  const renderProjectCard = (project, category) => {
-    const isUpcoming = category === "upcoming"
-    const hasVoted = votedProjects.has(project.id)
-
-    return (
-      <Card key={project.id} className={`project-card project-${category}`}>
-        <Card.Body>
-          <div className="project-header">
-            <div>
-              <Badge
-                bg={
-                  project.status === "Live"
-                    ? "success"
-                    : project.status === "Beta"
-                    ? "info"
-                    : project.status === "Completed"
-                    ? "secondary"
-                    : "warning"
-                }
-                className="project-badge"
-              >
-                {project.status}
-              </Badge>
-              <span className="project-date">{project.date}</span>
-            </div>
-            {isUpcoming && (
-              <Button
-                variant={hasVoted ? "outline-secondary" : "outline-primary"}
-                size="sm"
-                className="vote-button"
-                onClick={() => handleVote(project.id)}
-                disabled={hasVoted}
-              >
-                {hasVoted ? "✓ Voted" : "🗳️ Vote"}{" "}
-                {project.votes + (hasVoted ? 1 : 0)}
-              </Button>
-            )}
-          </div>
-
-          <h3 className="project-title">{project.title}</h3>
-          <p className="project-description">{project.description}</p>
-
-          <div className="project-tech">
-            {project.tech.map((tech, idx) => (
-              <span key={idx} className="tech-tag">
-                {tech}
-              </span>
-            ))}
-          </div>
-
-          {project.features && (
-            <div className="project-features">
-              {project.features.map((feature, idx) => (
-                <div key={idx} className="feature-item">
-                  ✓ {feature}
-                </div>
-              ))}
-            </div>
-          )}
-
-          {project.impact && (
-            <div className="project-impact">
-              <strong>Impact:</strong> {project.impact}
-            </div>
-          )}
-
-          {project.users && (
-            <div className="project-users">
-              <strong>👥 {project.users}</strong>
-            </div>
-          )}
-
-          {project.progress !== undefined && (
-            <div className="project-progress">
-              <div className="progress-label">
-                <span>Development Progress</span>
-                <span>{project.progress}%</span>
-              </div>
-              <div className="progress-bar-container">
-                <div
-                  className="progress-bar-fill"
-                  style={{ width: `${project.progress}%` }}
-                ></div>
-              </div>
-            </div>
-          )}
-        </Card.Body>
-      </Card>
-    )
   }
 
   return (
     <div className="projects-page">
+      {/* Hero Section */}
       <div className="projects-hero">
         <Container>
           <div className="text-center">
-            <h1 className="projects-main-title">Our Journey & Roadmap</h1>
+            <div className="hero-label">🚀 Live Roadmap & Projects</div>
+            <h1 className="projects-main-title">
+              Building the Future of <br />
+              <span className="highlight-text">Business Tools</span>
+            </h1>
             <p className="projects-subtitle">
-              Transparent insights into our past achievements, current
-              innovations, and exciting future developments. Vote on features
-              you'd like to see next.
+              Transparency at our core. Explore our journey from legacy systems
+              to our flagship
+              <br />
+              Micro-SaaS Integrator. Vote on what we build next.
             </p>
           </div>
         </Container>
       </div>
 
       <Container className="py-5">
-        {/* Legacy Projects */}
-        <section className="project-section">
-          <div className="section-header">
-            <div className="section-icon">📚</div>
-            <div>
-              <h2 className="section-title">Legacy Projects</h2>
-              <p className="section-description">
-                Battle-tested solutions that demonstrate our expertise and track
-                record
-              </p>
-            </div>
-          </div>
-          <Row xs={1} md={2} className="g-4">
-            {projectsData.legacy.map((project) => (
-              <Col key={project.id}>{renderProjectCard(project, "legacy")}</Col>
-            ))}
+        {/* Current Focus Section */}
+        <section className="current-focus-section">
+          <h2 className="section-title-simple">Current Focus</h2>
+
+          <Row className="g-4">
+            <Col lg={5}>
+              <Card className="focus-main-card">
+                <Card.Body>
+                  <div className="focus-visual">
+                    <div className="dashboard-mockup">
+                      <div className="mockup-header">
+                        <div className="mockup-dots">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>
+                      </div>
+                      <div className="mockup-content">
+                        <div className="mockup-sidebar"></div>
+                        <div className="mockup-main">
+                          <div className="mockup-charts">
+                            <div className="chart-circle"></div>
+                            <div className="chart-circle"></div>
+                            <div className="chart-circle"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col lg={4}>
+              <Card className="focus-info-card">
+                <Card.Body>
+                  <Badge bg="success" className="live-badge">
+                    {currentFocusData.status}
+                  </Badge>
+                  <h3 className="focus-title">{currentFocusData.title}</h3>
+                  <p className="focus-description">
+                    {currentFocusData.description}
+                  </p>
+                  <div className="focus-actions">
+                    {currentFocusData.actions.map((action, idx) => (
+                      <Button
+                        key={idx}
+                        variant={action.variant}
+                        className="focus-btn"
+                      >
+                        {action.label} →
+                      </Button>
+                    ))}
+                  </div>
+                  <a href="#" className="focus-link">
+                    View Changelog
+                  </a>
+                </Card.Body>
+              </Card>
+            </Col>
+            {/* Stats Row */}
+            <Col lg={3}>
+              <Card className="stats-card">
+                <Card.Body>
+                  <div className="stats-header">
+                    <h4>Total Projects</h4>
+                    <div className="stats-number">
+                      {statsData.totalProjects}
+                    </div>
+                  </div>
+                  <div className="stats-bars">
+                    <div className="stat-item">
+                      <div className="stat-bar">
+                        <div
+                          className="stat-fill in-development"
+                          style={{
+                            width: `${
+                              (statsData.inDevelopment /
+                                statsData.totalProjects) *
+                              100
+                            }%`,
+                          }}
+                        ></div>
+                      </div>
+                      <div className="stat-label">
+                        In Development
+                        <span>{statsData.inDevelopment}</span>
+                      </div>
+                    </div>
+                    <div className="stat-item">
+                      <div className="stat-bar">
+                        <div
+                          className="stat-fill completed"
+                          style={{
+                            width: `${
+                              (statsData.completed / statsData.totalProjects) *
+                              100
+                            }%`,
+                          }}
+                        ></div>
+                      </div>
+                      <div className="stat-label">
+                        Completed
+                        <span>{statsData.completed}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="community-request">
+                    <h5>Community Request</h5>
+                    <p>Submit your own feature idea</p>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
           </Row>
         </section>
 
-        {/* Current Projects */}
-        <section className="project-section">
-          <div className="section-header">
-            <div className="section-icon">🚀</div>
-            <div>
-              <h2 className="section-title">Current Projects</h2>
-              <p className="section-description">
-                Live products and services available now
-              </p>
+        {/* TheLab: Public Roadmap */}
+        <section className="roadmap-section">
+          <div className="roadmap-header">
+            <h2 className="section-title-simple">TheLab: Public Roadmap</h2>
+            <div className="roadmap-filters">
+              <span className="filter-date">Q3 2025</span>
+              <span className="filter-date">Q4 2025</span>
             </div>
           </div>
-          <Row xs={1} md={2} className="g-4">
-            {projectsData.current.map((project) => (
+
+          <Row xs={1} md={2} lg={4} className="g-4">
+            {roadmapProjects.map((project) => (
               <Col key={project.id}>
-                {renderProjectCard(project, "current")}
+                {project.isDarkMode ? (
+                  <Card className="roadmap-card dark-mode-card">
+                    <Card.Body>
+                      <div className="dark-mode-icon">🌙</div>
+                      <h4 className="roadmap-title-dark">{project.title}</h4>
+                    </Card.Body>
+                  </Card>
+                ) : (
+                  <Card className="roadmap-card">
+                    <Card.Body>
+                      {project.badge && (
+                        <Badge
+                          bg={project.badgeColor}
+                          className="roadmap-badge"
+                        >
+                          {project.badge}
+                        </Badge>
+                      )}
+                      <h4 className="roadmap-title">{project.title}</h4>
+                      <p className="roadmap-description">
+                        {project.description}
+                      </p>
+                      <div className="roadmap-footer">
+                        <Button
+                          variant="outline-secondary"
+                          size="sm"
+                          className="vote-btn"
+                          onClick={() => handleVote(project.id)}
+                          disabled={votedProjects.has(project.id)}
+                        >
+                          <span className="vote-icon">
+                            {votedProjects.has(project.id) ? "✓" : "👍"}
+                          </span>
+                          {project.votes +
+                            (votedProjects.has(project.id) ? 1 : 0)}
+                        </Button>
+                        <span className="roadmap-quarter">
+                          {project.quarter}
+                        </span>
+                      </div>
+                    </Card.Body>
+                  </Card>
+                )}
               </Col>
             ))}
           </Row>
         </section>
 
-        {/* Upcoming Projects */}
-        <section className="project-section">
-          <div className="section-header">
-            <div className="section-icon">🔮</div>
-            <div>
-              <h2 className="section-title">Upcoming & In Development</h2>
-              <p className="section-description">
-                Future innovations on our public roadmap - vote for your
-                favorites!
-              </p>
-            </div>
-          </div>
-          <Row xs={1} md={2} lg={3} className="g-4">
-            {projectsData.upcoming.map((project) => (
+        {/* Archive: Legacy Projects */}
+        <section className="legacy-section">
+          <h2 className="section-title-simple">Archive: Legacy Projects</h2>
+          <Row xs={1} md={2} className="g-4">
+            {legacyProjects.map((project) => (
               <Col key={project.id}>
-                {renderProjectCard(project, "upcoming")}
+                <Card
+                  className="legacy-card"
+                  style={{
+                    backgroundImage: `linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%), url(${project.image})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  <Card.Body>
+                    <div className="legacy-header">
+                      <span className="legacy-year">{project.year}</span>
+                      <span className="legacy-category">
+                        {project.category}
+                      </span>
+                    </div>
+                    <h3 className="legacy-title">{project.title}</h3>
+                    <p className="legacy-description">{project.description}</p>
+                    <a href="#" className="legacy-cta">
+                      {project.cta} →
+                    </a>
+                  </Card.Body>
+                </Card>
               </Col>
             ))}
           </Row>
-        </section>
-
-        {/* CTA Section */}
-        <section className="roadmap-cta">
-          <Card className="cta-card">
-            <Card.Body className="text-center">
-              <h2>Want to Influence Our Roadmap?</h2>
-              <p>Join our community and get early access to new features</p>
-              <Button variant="primary" size="lg" href="/contact">
-                Get Early Access
-              </Button>
-            </Card.Body>
-          </Card>
         </section>
       </Container>
     </div>
