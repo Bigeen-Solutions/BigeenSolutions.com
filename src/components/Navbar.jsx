@@ -1,51 +1,70 @@
 import React from "react"
 import { Navbar, Nav, Container, Button } from "react-bootstrap"
-import { Link } from "react-router-dom"
-import brandLogo from "../assets/images/bigeen-logo.png"
+import { Link, useLocation, useNavigate } from "react-router-dom"
+import logo from "../assets/images/bigeen-logo.png"
 import "./Navbar.css"
 
 function CustomNavbar() {
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const handleFeaturesClick = (e) => {
+    e.preventDefault()
+    if (location.pathname !== "/") {
+      navigate("/")
+      setTimeout(() => {
+        document
+          .getElementById("features")
+          ?.scrollIntoView({ behavior: "smooth" })
+      }, 100)
+    } else {
+      document
+        .getElementById("features")
+        ?.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
-    <Navbar expand="lg" className="navbar-custom" sticky="top">
+    <Navbar expand="lg" className="custom-navbar" sticky="top">
       <Container>
-        <Navbar.Brand as={Link} to="/" className="brand-logo">
-          <img
-            src={brandLogo}
-            height="32"
-            className="d-inline-block align-top"
-            alt="Bigeen Logo"
-            loading="lazy"
-          />
-          <span className="brand-text">Solutions</span>
+        <Navbar.Brand as={Link} to="/" className="brand">
+          <img src={logo} alt="Bigeen Solutions" className="brand-logo" />
+          <span className="brand-text">Bigeen Solutions</span>
         </Navbar.Brand>
-        <Navbar.Toggle
-          aria-controls="basic-navbar-nav"
-          aria-label="Toggle navigation menu"
-        />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mx-auto align-items-lg-center">
-            <Nav.Link as={Link} to="/" className="nav-link-custom">
+          <Nav className="align-items-center">
+            <Nav.Link href="#features" onClick={handleFeaturesClick}>
               Features
             </Nav.Link>
-            <Nav.Link as={Link} to="/services" className="nav-link-custom">
+            <Nav.Link
+              as={Link}
+              to="/services"
+              className={location.pathname === "/services" ? "active" : ""}
+            >
               Solutions
             </Nav.Link>
-            <Nav.Link as={Link} to="/projects" className="nav-link-custom">
+            <Nav.Link
+              as={Link}
+              to="/projects"
+              className={location.pathname === "/projects" ? "active" : ""}
+            >
               Projects
             </Nav.Link>
           </Nav>
-          <Nav className="align-items-lg-center">
+          <Nav className="align-items-center">
             <Nav.Link
               as={Link}
-              to="/about"
-              className="nav-link-custom nav-link-login"
+              to="/contact"
+              className={location.pathname === "/contact" ? "active" : ""}
             >
-              About Us
+              Get in touch
             </Nav.Link>
             <Button
               as={Link}
               to="/contact"
-              className="ms-lg-3 mt-2 mt-lg-0 nav-cta-button"
+              variant="dark"
+              className="cta-button ms-3"
             >
               Get Access
             </Button>

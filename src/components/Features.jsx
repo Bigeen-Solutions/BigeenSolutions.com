@@ -1,126 +1,94 @@
-//component/Features.jsx
+// component/Features.jsx
 import React from "react"
 import { Container } from "react-bootstrap"
+import { RefreshCw, TrendingUp, Shield, Cloud } from "lucide-react"
 import "./Features.css"
-
-const featuresData = [
-  {
-    id: 1,
-    title: "Intelligent Automation",
-    description:
-      "Streamline workflows with AI-powered automation that learns from your patterns and optimizes operations in real-time.",
-    icon: "⚡",
-    gradient: "purple",
-    size: "large",
-  },
-  {
-    id: 2,
-    title: "Real-Time Analytics",
-    description:
-      "Make data-driven decisions with advanced analytics and customizable dashboards.",
-    icon: "📊",
-    gradient: "teal",
-    size: "medium",
-  },
-  {
-    id: 3,
-    title: "Scalable Infrastructure",
-    description:
-      "Built to grow with your business, from startup to enterprise scale.",
-    icon: "🚀",
-    gradient: "blue",
-    size: "medium",
-  },
-  {
-    id: 4,
-    title: "Seamless Integration",
-    description:
-      "Connect all your tools in one unified platform. Works with 500+ apps and services.",
-    icon: "🔗",
-    gradient: "purple",
-    size: "medium",
-  },
-  {
-    id: 5,
-    title: "Enterprise Security",
-    description:
-      "Bank-level encryption, SOC 2 compliance, and advanced access controls.",
-    icon: "🔒",
-    gradient: "teal",
-    size: "small",
-  },
-  {
-    id: 6,
-    title: "24/7 Support",
-    description:
-      "Expert support when you need it, with 99.9% uptime guarantee.",
-    icon: "💬",
-    gradient: "blue",
-    size: "small",
-  },
-]
 
 function Features() {
   return (
-    <div className="features-section-wrapper">
-      <Container className="py-5">
+    // ID added here for navigation
+    <section id="features" className="features-section-wrapper">
+      <Container>
+        {/* Header Section */}
         <div className="text-center mb-5">
-          <h2 className="features-title">Everything You Need to Succeed</h2>
+          <h2 className="features-title">
+            Everything you need to{" "}
+            <span className="highlight-purple">grow</span>
+          </h2>
           <p className="features-subtitle">
-            Powerful tools designed for the modern business, integrated into one
-            seamless platform
+            Powerful features wrapped in a simple, intuitive interface designed
+            for lean teams.
           </p>
         </div>
 
-        {/* Bento Grid Layout */}
         <div className="bento-grid">
-          {featuresData.map((feature) => (
-            <div
-              key={feature.id}
-              className={`bento-item bento-${feature.size} bento-gradient-${feature.gradient}`}
-            >
-              <div className="bento-content">
-                <div className="bento-icon">{feature.icon}</div>
-                <h3 className="bento-title">{feature.title}</h3>
-                <p className="bento-description">{feature.description}</p>
+          {/* Card 1: Smart Automation (Wide) */}
+          <div className="bento-card span-2-cols">
+            <div className="icon-wrapper icon-purple">
+              <RefreshCw size={24} />
+            </div>
+            <h3 className="card-title">Smart Automation</h3>
+            <p className="card-desc">
+              Trigger complex workflows based on user behavior. Connect your
+              favorite tools and let Bigeen handle the repetitive tasks.
+            </p>
+            {/* Visual: Workflow UI */}
+            <div className="workflow-visual">
+              <div className="workflow-status">
+                <span className="dot"></span> Workflow Active
               </div>
-              <div className="bento-glow"></div>
+              <div className="workflow-progress">
+                <div className="workflow-line" style={{ width: "90%" }}></div>
+              </div>
+              <div className="workflow-progress">
+                <div className="workflow-line" style={{ width: "60%" }}></div>
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
 
-        {/* Value Proposition Grid */}
-        <div className="value-prop-section">
-          <h3 className="value-prop-title">The Integrated Advantage</h3>
-          <div className="value-prop-grid">
-            <div className="value-card">
-              <div className="value-icon">⚡</div>
-              <h4>Automation First</h4>
-              <p>
-                Eliminate repetitive tasks and focus on what matters. Our AI
-                learns your workflows and suggests optimizations.
-              </p>
+          {/* Card 2: Real-time Analytics (Tall) */}
+          <div className="bento-card span-2-rows">
+            <div className="icon-wrapper icon-purple">
+              <TrendingUp size={24} />
             </div>
-            <div className="value-card">
-              <div className="value-icon">📈</div>
-              <h4>Data-Driven Insights</h4>
-              <p>
-                Transform raw data into actionable insights with real-time
-                analytics and predictive intelligence.
-              </p>
+            <h3 className="card-title">Real-time Analytics</h3>
+            <p className="card-desc">
+              Deep insights into your revenue, churn, and user engagement.
+            </p>
+            {/* Visual: Bar Chart */}
+            <div className="chart-visual">
+              <div className="chart-bar" style={{ height: "40%" }}></div>
+              <div className="chart-bar" style={{ height: "60%" }}></div>
+              <div className="chart-bar" style={{ height: "50%" }}></div>
+              <div className="chart-bar" style={{ height: "75%" }}></div>
+              <div className="chart-bar active" style={{ height: "90%" }}></div>
             </div>
-            <div className="value-card">
-              <div className="value-icon">🎯</div>
-              <h4>Infinite Scalability</h4>
-              <p>
-                Start small, grow big. Our infrastructure scales automatically
-                to match your business needs.
-              </p>
+          </div>
+
+          {/* Card 3: Enterprise Security (Small) */}
+          <div className="bento-card">
+            <div className="icon-wrapper icon-purple">
+              <Shield size={24} />
             </div>
+            <h3 className="card-title">Enterprise Security</h3>
+            <p className="card-desc">
+              SOC2 compliant data protection for peace of mind.
+            </p>
+          </div>
+
+          {/* Card 4: Instant Scalability (Small) */}
+          <div className="bento-card">
+            <div className="icon-wrapper icon-teal">
+              <Cloud size={24} />
+            </div>
+            <h3 className="card-title">Instant Scalability</h3>
+            <p className="card-desc">
+              Infrastructure that grows automatically with your user base.
+            </p>
           </div>
         </div>
       </Container>
-    </div>
+    </section>
   )
 }
 
