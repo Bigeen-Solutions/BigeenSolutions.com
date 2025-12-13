@@ -4,10 +4,10 @@ import "./ProjectsPage.css"
 
 // Current Focus Project
 const currentFocusData = {
-  title: "Bigeen Core",
-  status: "LIVE v2.5",
+  title: "Bigeen myBusiness",
+  status: "LIVE v1.0",
   description:
-    "The All-in-One Integrator seamlessly connecting your business tools. Currently serving 500+ businesses with automated workflows and real-time analytics.",
+    "designed to help small and medium-scale businesses track income, expenses, and forecasts in real-time—with zero accounting complexity",
   actions: [
     { label: "Try for free", variant: "dark" },
     { label: "View Changelog", variant: "outline-secondary" },
@@ -18,27 +18,27 @@ const currentFocusData = {
 const roadmapProjects = [
   {
     id: 1,
-    title: "AI Analytics Integration",
+    title: "AriyahFit",
     badge: "InDesign",
     badgeColor: "purple",
     description:
-      "Predictive modeling for flight trends directly within the Bigeen dashboard.",
+      "Remote fitness platform with live classes, progress tracking, and community challenges.",
     votes: 422,
-    quarter: "Q3 2025",
+    quarter: "Q1 2026",
   },
   {
     id: 2,
-    title: "Mobile Companion App",
+    title: "EveryCrave e-commerce App",
     badge: "Coming Q2",
     badgeColor: "warning",
     description:
-      "Native iOS and Android apps for managing dashboards on mobile integrations.",
+      "E-commerce platform tailored for local artisans to showcase and sell their products.",
     votes: 340,
     quarter: "Q2 2026",
   },
   {
     id: 3,
-    title: "Public API Gateway",
+    title: "Business Marketplace API",
     badge: "Planned",
     badgeColor: "info",
     description:
